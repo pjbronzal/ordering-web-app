@@ -5,13 +5,14 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
-
+/* 
 body {
   background-color: #fec208;
-}
+} */
 
 .menu .card {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: #f4f4f4;
 }
 
 .receipt {
