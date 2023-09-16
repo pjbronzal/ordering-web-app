@@ -1,6 +1,7 @@
 let orderList = [];
 let totalAmount = 0;
 
+// ADDING ORDER
 function orderMeal(mealName, price) {
   orderList.push({ name: mealName, price: price });
   totalAmount += price;
@@ -29,6 +30,7 @@ function orderMeal(mealName, price) {
   totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
 }
 
+// DELETING ORDER
 function deleteMeal() {
   if (orderList.length === 0) {
     alert("No order to delete.");
@@ -63,3 +65,19 @@ function deleteMeal() {
 
   totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
 }
+
+// RANDOMIZING TICKET NUMBER
+function generateRandom4DigitNumber() {
+  const randomDecimal = Math.random();
+  const randomBetween0And10000 = randomDecimal * 10000;
+  const random4DigitNumber = Math.floor(randomBetween0And10000);
+  return random4DigitNumber;
+}
+
+function generateAndDisplayRandomNumber() {
+  const random4DigitNumber = generateRandom4DigitNumber();
+  const ticketNumberElement = document.getElementById("ticketNumber");
+  ticketNumberElement.textContent = random4DigitNumber;
+}
+
+generateAndDisplayRandomNumber();
