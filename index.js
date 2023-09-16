@@ -28,6 +28,7 @@ function orderMeal(mealName, price) {
   }
 
   totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
+  event.preventDefault();
 }
 
 // DELETING ORDER
@@ -64,6 +65,7 @@ function deleteMeal() {
   }
 
   totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
+  event.preventDefault();
 }
 
 // RANDOMIZING TICKET NUMBER
