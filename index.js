@@ -83,3 +83,20 @@ function generateAndDisplayRandomNumber() {
 }
 
 generateAndDisplayRandomNumber();
+
+// Generating Ticket Modal
+document.getElementById("openModalBtn").addEventListener("click", function () {
+  const dataContainer = document.getElementById("dataContainer");
+  const dataToTransfer = dataContainer.innerHTML;
+
+  const modalData = document.getElementById("modalData");
+  modalData.innerHTML = dataToTransfer;
+
+  const modal = document.getElementById("myModal");
+  modal.style.display = "block";
+});
+
+document.querySelector(".close").addEventListener("click", function () {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+});
