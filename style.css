@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fec208;
+}
+
+.menu .card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.receipt {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.card-body {
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  font-size: 12px;
+}
+
+.card-title,
+#addToCart {
+  font-size: 12px;
+}
+
+.price {
+  font-size: 10.5px;
+}
+
+.img-fluid {
+  width: 150px;
+}
