@@ -11,22 +11,51 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/mcdo-logo.png">
 
     <title>Ordering Web App</title>
 </head>
 
 <body>
-    <section id="pos">
-        <div id="dataContainer"></div>
+    <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-5" href="#"><img src="img/McDelivery.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">My Account</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-5" type="search" placeholder="Search for your McDonald's favor">
+            </div>
+        </div>
+    </nav>
 
+    <section id="pos">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm-7 col-12 mb-3 menu">
-                    <div class="card">
-                        <div class="card-header bg-light text-center">
-                            <h4>Food Menu</h4>
+                    <div class="border-0">
+                        <div class="card-header bg-white text-center">
+                            <h4 class="fw-bold p-1">Choose Your Meal</h4>
                         </div>
-                        <div class="card-body">
+                        <hr>
+                        <div class="card-body bg-white">
                             <!-- 1st Main Meal -->
                             <div class="row mb-3">
                                 <div class="col-md-3">
@@ -51,7 +80,7 @@
                                     <div class="card mb-3">
                                         <img src="img/Burger Mcdo Solo.png" class="card-img-top">
                                         <div class="card-body">
-                                            <h5 class="card-title">Burger McDo Solo</h5>
+                                            <h5 class="card-title">Burger McDo Solo &nbsp;</h5>
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱44.00</div>
                                                 <div class="col-6 text-end">
@@ -68,7 +97,7 @@
                                     <div class="card mb-3">
                                         <img src="img/McSpaghetti Solo.webp" class="card-img-top">
                                         <div class="card-body">
-                                            <h5 class="card-title">McSpaghetti Solo</h5>
+                                            <h5 class="card-title">McSpaghetti Solo &nbsp;</h5>
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱72.00</div>
                                                 <div class="col-6 text-end">
@@ -158,7 +187,7 @@
                                         <img src="img/Medium Fries.webp" class="card-img-top">
                                         <div class="card-body">
                                             <h5 class="card-title">McDonald's Medium Fries
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱60.00</div>
                                                 <div class="col-6 text-end">
@@ -229,7 +258,8 @@
                                     <div class="card mb-3">
                                         <img src="img/Lipton Iced Tea.webp" class="card-img-top">
                                         <div class="card-body">
-                                            <h5 class="card-title">Lipton Iced Tea &nbsp;&nbsp;</h5>
+                                            <h5 class="card-title">Lipton Iced Tea &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </h5>
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱79.00</div>
                                                 <div class="col-6 text-end">
@@ -250,15 +280,19 @@
                 <div class="col-sm-5 col-12 receipt">
                     <div class="card">
                         <div class="card-header text-center">
-                            <h4>Order List</h4>
+                            <h4 class="fw-bold p-1">Order List</h4>
+                            <button class="btn btn-sm btn-danger" onclick="deleteMeal()"><i
+                                    class="fa-solid fa-trash"></i></button>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body bg-white">
 
                             <div class="row">
                                 <div class="col-9">
+                                    <p class="fw-bold">ITEM</p>
                                     <ul id="itemName"></ul>
                                 </div>
                                 <div class="col-3 text-end">
+                                    <p class="fw-bold">AMOUNT</p>
                                     <ul id="itemPrice"></ul>
                                 </div>
                             </div>
