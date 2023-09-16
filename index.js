@@ -1,54 +1,30 @@
-let user = {
-  cartlist: [],
-  show() {
-    let cartItem = document.getElementById("itemName");
-    let cartPrice = document.getElementById("itemPrice");
-    let totalCost = 0;
+let orderList = [];
+let totalAmount = 0;
 
-    cartItem.innerHTML = "";
-    cartPrice.innerHTML = "";
+function orderMeal(mealName, price) {
+  orderList.push({ name: mealName, price: price });
+  totalAmount += price;
 
-    this.cartlist.forEach(function (item) {
-      let formattedPrice = Number(item.price).toFixed(2);
+  const itemNameList = document.getElementById("itemName");
+  const itemPriceList = document.getElementById("itemPrice");
+  const totalElement = document.getElementById("total");
 
-      // ITEM
-      let itemNameList = document.getElementById("itemName");
-      let itemNameItem = document.createElement("li");
-      itemNameItem.innerText = item.product;
-      itemNameList.appendChild(itemNameItem);
+  itemNameList.innerHTML = "";
+  itemPriceList.innerHTML = "";
 
-      // PRICE
-      let itemPriceList = document.getElementById("itemPrice");
-      let itemPriceItem = document.createElement("li");
-      itemPriceItem.innerText = `₱ ${formattedPrice}`;
-      itemPriceList.appendChild(itemPriceItem);
+  for (let i = 0; i < orderList.length; i++) {
+    const order = orderList[i];
+    const itemName = order.name;
+    const itemPrice = order.price;
 
-      totalCost += Number(item.price);
-    });
+    const itemNameListItem = document.createElement("li");
+    itemNameListItem.textContent = itemName;
+    itemNameList.appendChild(itemNameListItem);
 
-    // TOTAL COST
-    totalCost = totalCost.toFixed(2);
-    document.getElementById("total").innerText = `₱ ${totalCost}`;
-  },
-};
-
-user.show();
-
-function add() {
-  let order = document.getElementById("order").value;
-  let price = document.getElementById("price").value;
-
-  if (order === "" || price === "") {
-    alert("No item added!");
-  } else {
-    user.cartlist.push({ product: order, price: parseFloat(price) });
-    user.show();
-    document.getElementById("order").value = "";
-    document.getElementById("price").value = "";
+    const itemPriceListItem = document.createElement("li");
+    itemPriceListItem.textContent = `₱${itemPrice.toFixed(2)}`;
+    itemPriceList.appendChild(itemPriceListItem);
   }
-}
 
-function del() {
-  user.cartlist.pop();
-  user.show();
+  totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
 }

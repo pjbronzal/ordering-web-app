@@ -17,6 +17,8 @@
 
 <body>
     <section id="pos">
+        <div id="dataContainer"></div>
+
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm-7 col-12 mb-3 menu">
@@ -25,24 +27,6 @@
                             <h4>Food Menu</h4>
                         </div>
                         <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="order" placeholder="Item">
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <input type="number" class="form-control" id="price">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-primary" onclick="add()">Add</button>
-                                    <button class="btn btn-danger" onclick="del()">Delete</button>
-                                </div>
-                            </div>
-                            <hr>
-
-
                             <!-- 1st Main Meal -->
                             <div class="row mb-3">
                                 <div class="col-md-3">
@@ -54,7 +38,8 @@
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱79.00</div>
                                                 <div class="col-6 text-end">
-                                                    <button class="btn btn-sm btn-warning"><i
+                                                    <button onclick="orderMeal('Mushroom Pepper Steak', 79)"
+                                                        id="orderMeal1" class="btn btn-sm btn-warning"><i
                                                             class="fa-solid fa-plus"></i></button>
                                                 </div>
                                             </div>
@@ -70,7 +55,8 @@
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱44.00</div>
                                                 <div class="col-6 text-end">
-                                                    <button class="btn btn-sm btn-warning"><i
+                                                    <button onclick="orderMeal('Burger McDo Solo', 44)"
+                                                        class="btn btn-sm btn-warning"><i
                                                             class="fa-solid fa-plus"></i></button>
                                                 </div>
                                             </div>
@@ -86,7 +72,8 @@
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱72.00</div>
                                                 <div class="col-6 text-end">
-                                                    <button class="btn btn-sm btn-warning"><i
+                                                    <button onclick="orderMeal('McSpaghetti Solo', 72)"
+                                                        class="btn btn-sm btn-warning"><i
                                                             class="fa-solid fa-plus"></i></button>
                                                 </div>
                                             </div>
@@ -102,7 +89,8 @@
                                             <div class="row">
                                                 <div class="col-6 fw-bold price">₱61.00</div>
                                                 <div class="col-6 text-end">
-                                                    <button class="btn btn-sm btn-warning"><i
+                                                    <button onclick="orderMeal('McCafé Iced Coffee Original', 61)"
+                                                        class="btn btn-sm btn-warning"><i
                                                             class="fa-solid fa-plus"></i></button>
                                                 </div>
                                             </div>
@@ -282,12 +270,12 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
+
     </section>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -299,7 +287,6 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script src="index.js"></script>
-
 </body>
 
 </html>
