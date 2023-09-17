@@ -100,4 +100,3 @@ document.querySelector(".close").addEventListener("click", function () {
   const modal = document.getElementById("myModal");
   modal.style.display = "none";
 });
-event.preventDefault();
