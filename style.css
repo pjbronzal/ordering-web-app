@@ -91,3 +91,7 @@ ul li {
   color: white;
   border-radius: 50%;
 }
+
+.modal .deleteThisMeal {
+  display: none;
+}

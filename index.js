@@ -1,16 +1,14 @@
 let orderList = [];
 let totalAmount = 0;
 
-// ADDING ORDER
+// Adding Meal Order
 function orderMeal(mealName, price) {
   orderList.push({ name: mealName, price: price });
   totalAmount += price;
 
-  // Update the total amount display
   const totalElement = document.getElementById("total");
   totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
 
-  // Display the newly added item
   const itemNameList = document.getElementById("itemName");
   const itemPriceList = document.getElementById("itemPrice");
 
