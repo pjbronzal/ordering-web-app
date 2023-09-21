@@ -6,65 +6,48 @@ function orderMeal(mealName, price) {
   orderList.push({ name: mealName, price: price });
   totalAmount += price;
 
+  // Update the total amount display
+  const totalElement = document.getElementById("total");
+  totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
+
+  // Display the newly added item
   const itemNameList = document.getElementById("itemName");
   const itemPriceList = document.getElementById("itemPrice");
-  const totalElement = document.getElementById("total");
 
-  itemNameList.innerHTML = "";
-  itemPriceList.innerHTML = "";
+  const itemNameListItem = document.createElement("li");
+  itemNameListItem.textContent = mealName;
+  itemNameList.appendChild(itemNameListItem);
 
-  for (let i = 0; i < orderList.length; i++) {
-    const order = orderList[i];
-    const itemName = order.name;
-    const itemPrice = order.price;
+  const itemPriceListItem = document.createElement("li");
+  itemPriceListItem.textContent = `₱${price.toFixed(2)}`;
+  itemPriceList.appendChild(itemPriceListItem);
 
-    const itemNameListItem = document.createElement("li");
-    itemNameListItem.textContent = itemName;
-    itemNameList.appendChild(itemNameListItem);
+  // Create a delete button for the newly added item
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "x";
+  deleteButton.classList.add("deleteThisMeal");
 
-    const itemPriceListItem = document.createElement("li");
-    itemPriceListItem.textContent = `₱${itemPrice.toFixed(2)}`;
-    itemPriceList.appendChild(itemPriceListItem);
-  }
+  // Add a click event listener to delete the corresponding list item
+  deleteButton.addEventListener("click", () => {
+    // Subtract the item price from the total amount
+    totalAmount -= price;
+    totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
 
-  totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
-  event.preventDefault();
-}
+    // Remove the list items and the delete button for the deleted item
+    itemNameList.removeChild(itemNameListItem);
+    itemPriceList.removeChild(itemPriceListItem);
+    itemNameListItem.removeChild(deleteButton);
 
-// DELETING ORDER
-function deleteMeal() {
-  if (orderList.length === 0) {
-    alert("No order to delete.");
-    return;
-  }
+    // Remove the deleted item from the orderList
+    const index = orderList.findIndex((item) => item.name === mealName);
+    if (index !== -1) {
+      orderList.splice(index, 1);
+    }
+  });
 
-  const latestItem = orderList.pop();
-  const latestItemPrice = latestItem.price;
+  // Append the delete button to the list item
+  itemNameListItem.appendChild(deleteButton);
 
-  totalAmount -= latestItemPrice;
-
-  const itemNameList = document.getElementById("itemName");
-  const itemPriceList = document.getElementById("itemPrice");
-  const totalElement = document.getElementById("total");
-
-  itemNameList.innerHTML = "";
-  itemPriceList.innerHTML = "";
-
-  for (let i = 0; i < orderList.length; i++) {
-    const order = orderList[i];
-    const itemName = order.name;
-    const itemPrice = order.price;
-
-    const itemNameListItem = document.createElement("li");
-    itemNameListItem.textContent = itemName;
-    itemNameList.appendChild(itemNameListItem);
-
-    const itemPriceListItem = document.createElement("li");
-    itemPriceListItem.textContent = `₱${itemPrice.toFixed(2)}`;
-    itemPriceList.appendChild(itemPriceListItem);
-  }
-
-  totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
   event.preventDefault();
 }
 
@@ -96,7 +79,7 @@ document.getElementById("openModalBtn").addEventListener("click", function () {
   modal.style.display = "block";
 });
 
-document.querySelector(".close").addEventListener("click", function () {
-  const modal = document.getElementById("myModal");
-  modal.style.display = "none";
-});
+// document.querySelector(".close").addEventListener("click", function () {
+//   const modal = document.getElementById("myModal");
+//   modal.style.display = "none";
+// });

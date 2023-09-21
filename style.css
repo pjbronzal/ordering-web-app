@@ -27,7 +27,7 @@ nav ul li {
 }
 
 nav .form-control {
-  width: 350px;
+  /* width: 300px; */
   font-size: 14px;
 }
 
@@ -81,4 +81,13 @@ ul li {
 
 .img-fluid {
   width: 150px;
+}
+
+.deleteThisMeal {
+  padding: 0 6px;
+  margin-left: 10px;
+  border: 0;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
 }
