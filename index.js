@@ -22,32 +22,25 @@ function orderMeal(mealName, price) {
   itemPriceListItem.textContent = `₱${price.toFixed(2)}`;
   itemPriceList.appendChild(itemPriceListItem);
 
-  // Create a delete button for the newly added item
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "x";
   deleteButton.classList.add("deleteThisMeal");
 
-  // Add a click event listener to delete the corresponding list item
   deleteButton.addEventListener("click", () => {
-    // Subtract the item price from the total amount
     totalAmount -= price;
     totalElement.textContent = `₱${totalAmount.toFixed(2)}`;
 
-    // Remove the list items and the delete button for the deleted item
     itemNameList.removeChild(itemNameListItem);
     itemPriceList.removeChild(itemPriceListItem);
     itemNameListItem.removeChild(deleteButton);
 
-    // Remove the deleted item from the orderList
     const index = orderList.findIndex((item) => item.name === mealName);
     if (index !== -1) {
       orderList.splice(index, 1);
     }
   });
 
-  // Append the delete button to the list item
   itemNameListItem.appendChild(deleteButton);
-
   event.preventDefault();
 }
 
